@@ -6,44 +6,34 @@ namespace Single_Responsibility_Principle
         public static void Main(string[] args)
         {
             // Single Responsibility 
-            // Her sinifin veya metodun tek bir sorumlulugu olmali
-
-            // " bir tek seyi yap ve onu en iyi yap ! "
-
-            // kodlamaya baslamadan once sorulacak sorular
-            // bu metod bu sinif icinde mi yer almali ?
-            // bu gorevi yerine getirmek bu metodun veya sinifin isi mi?
         }
     }
-    // kotu kod
+    // incorrect
     public class Customer
 	{
          public void Add()
          {
             try
             {
-                // veritabanina ekle
+                // add db
                 Console.WriteLine("Customer Added");
             }
             catch (Exception ex)
             {
 
-                // hatayi dosyaya logla
-                System.IO.File.WriteAllText(@"c:\Hata.txt", ex.ToString());
+                // exception
+                System.IO.File.WriteAllText(@"c:\exception.txt", ex.ToString());
             }
          }
 	}
 
-    // loglama islemi ve musteri ekleme birbirinden farkli islemlerdir
-    // bu yuzden hata loglama kodlari ayri bir yerde yazilmalidir
-
-    // dogru kod
+    // correct
 
     public class FileLog
     {
         public void Log(string exception)
         {
-            System.IO.File.WriteAllText(@"c:\Hata.txt", exception.ToString());        
+            System.IO.File.WriteAllText(@"c:\exception.txt", exception.ToString());        
         }
     }
     public class NewCustomer
@@ -52,7 +42,7 @@ namespace Single_Responsibility_Principle
         {
             try
             {
-                // veritabanina ekleme
+                // add db
                 Console.WriteLine(" New Customer Added");
             }
             catch (Exception ex)
