@@ -4,16 +4,11 @@
     {
         public static void Main(string[] args)
         {
-            // Interface Segregation Principle
-            // arayuzlerin ayrilmasi prensibi
-            // sorumluluklarin hepsi bir arayuze toplamak yerine
-            // ozellestirilmis arayuzler olusturmaliyiz
-
 
         }
     }
 
-    // kotu kod
+    // incorrect
 
     public interface IBaseApi
     {
@@ -62,10 +57,7 @@
         }
     }
 
-    // sadece get yapacagimiz bir durum olursa IBaseApi isimizi gormez
-    // bu durumlarin olmamasi icin Get metodu ayri interface olarak yazilir
-
-    // dogru kod
+    // correct
 
     public interface IGet
     {
@@ -103,8 +95,4 @@
             throw new NotImplementedException();
         }
     }
-
-    // boylelikle notification sadece get metodunu icerirken
-    // video sinifi hepsini icerir
-
 }
