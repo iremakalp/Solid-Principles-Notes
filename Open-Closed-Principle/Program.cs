@@ -4,14 +4,11 @@
     {
         public static void Main(string[] args)
         {
-            // Open-Closed-Principle
-            // siniflar degisiklige kapali ancak gelisime acik olmalidir
-            // bir sinif davranisini degistirmemeli, yeni ozellikler kazanabilmeli
 
         }
     }
 
-    // kotu kod
+    // incorrect
 
     public class XmlLog
     {
@@ -61,17 +58,8 @@
         }
     }
 
-    // bu sekilde yazdigimizde yeni bir loglama formati eklenirse
-    // ornegin json formatinda LogType icerisine yeni bir type eklememiz gerekir
-    // ardindan Logger icerisinde degistirmemiz gerekir
-    // baska bir format gelirse ayni islemleri onun icinde yapmaliyiz
-    // bu sekilde yapmak prensibe aykiridir
 
-    // dogru kod
-
-
-    // ILogger interface olusturduk ve tum loglama siniflari ILoggerdan implemente edildi
-    // artik yeni bir loglama formati eklense bile Logger sinifini degistirmemize gerek kalmaz
+    // correct
 
     public interface ILogger
     {
