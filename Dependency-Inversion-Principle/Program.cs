@@ -4,16 +4,11 @@
     {
         public static void Main(string[] args)
         {
-            // Dependency Inversion Principle
-            // katmanli mimarilerde ust seviye moduller
-            // alt seviyedeki modullere dogrudan bagimli olmamali
 
-            // siniflar arasi bagimliliklar az olmalı
-            // ozellikle ust siniflar alt siniflara bagimli olmamali
         }
     }
 
-    // kotu kod
+    // incorrect
 
     public class XmlLog
     {
@@ -31,8 +26,7 @@
         }
     }
 
-    // dogru kod
-    // bir interface kullanilarak yazildiginda xml sinifina bagimli olmamis oluruz
+    // correct
 
     public interface ILogger
     {
