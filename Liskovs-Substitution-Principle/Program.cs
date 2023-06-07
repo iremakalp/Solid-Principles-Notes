@@ -4,12 +4,6 @@
     {
         public static void Main(string[] args)
         {
-            //  Liskovs Substitution Principle
-            // yerine gecebilme prensibi
-            // alt siniflar ust siniflarinin miras aldigi butun ozellikleri kullanabilmeli
-            // alt siniflarda olusturulan nesneler ust siniflar ile yer degistirdiginde;
-            // ayni davranisi gostermeli ve herhangi bir kullanilmayan ozellik olmamali
-
             Printer printer = new Printer();
             printer.Print("value");
 
@@ -20,9 +14,7 @@
         }
     }
 
-    // kotu kod
-    // bu sekilde yazildiginde scan metodu her printer icin gecerli olmayabilir
-    // 
+    // incorrect
     public abstract class BasePrinter
     {
         public abstract void Print(string value);
@@ -60,21 +52,15 @@
 
         public void Print(string value)
         {
-            // canon her ikisi icinde calisir
             _canonPrinter.Print(value);
             _canonPrinter.Scan(value);
 
-            // hp sadece print icin calisir
-            // scan metodu bos oldugu icin hata verir
             _hpPrinter.Print(value);
             _hpPrinter.Scan(value);
         }
     }
 
-    // dogru kod
-    // baseprinter icerisinde sadece printer metodu olmali
-    // scan emtodu ayri yazilmali
-    // canon ve hp printer ise ihtiyacı olan siniftan kalitilmali ya da implemente edilmeli
+    // correct
 
     public abstract class BasePrinterNew
     {
